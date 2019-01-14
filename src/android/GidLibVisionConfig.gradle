@@ -1,0 +1,19 @@
+repositories{    
+  jcenter()
+  flatDir {
+      dirs 'libs'
+   }
+}
+
+dependencies {
+    implementation 'com.google.android.gms:play-services-vision:15.0.0'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation ('gidvisionlib', ext : 'aar')  
+}
+
+android {
+  packagingOptions {
+    exclude 'META-INF/NOTICE'
+    exclude 'META-INF/LICENSE'
+  }
+}
