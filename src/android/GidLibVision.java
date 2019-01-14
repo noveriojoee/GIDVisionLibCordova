@@ -26,6 +26,7 @@ public class GidLibVision extends CordovaPlugin {
             String message = args.getString(0);
             this.coolMethod(message, callbackContext);
             return true;
+            
         }else if(action.equals("OCR_KTP")){
             this.goToNewIntent(GO_TO_OCR_ACTIVITY_KTP);
         }else if(action.equals("OCR_NPWP")){
