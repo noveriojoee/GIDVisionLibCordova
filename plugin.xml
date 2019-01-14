@@ -14,7 +14,7 @@
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml"></config-file>
         <source-file src="src/android/GidLibVision.java" target-dir="src/gid/com/gidvisionlib/plugin/GidLibVision" />
-        <framework custom="true" src="src/android/GidLibVisionConfig.gradle.gradle" type="gradleReference" />
+        <framework custom="true" src="src/android/GidLibVisionConfig.gradle" type="gradleReference" />
         <resource-file src="src/android/libs/gidvisionlib.aar" target="libs/gidvisionlib.aar" />
     </platform>
 </plugin>

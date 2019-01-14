@@ -14,19 +14,20 @@
     ]
   },
   "repository": {
-    // "type": "git",
-    // "url": "https://github.com/apache/cordova-plugin-device"
     "type": "dir",
     "url": "/Users/noveriojoe/Work/CordovaProject/CordovaPlugin/GidLibVision"
 
   },
-  "author": "GID",
-  "license": "Apache-2.0",
   "engines": {
     "cordovaDependencies": {
       "3.0.0": {
         "cordova": ">100"
       }
     }
+  },
+  "author": "MAYBANK INDONESIA",
+  "license": "MAYBANK INDONESIA",
+  "devDependencies": {
+    "jshint": "MAYBANK"
   }
 }
