@@ -24,6 +24,6 @@
             </feature>
         </config-file>
         <source-file src="src/ios/GidLibVision.m" />
-        <framework src="src/ios/Framework/GIDVisionLib.framework" custom="true"></framework>
+        <framework src="GIDVisionLib" type="podspec" spec="~> 1.0.3" />
     </platform>
 </plugin>
