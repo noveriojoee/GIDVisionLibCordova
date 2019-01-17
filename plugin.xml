@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="gid.com.gidvisionlib.plugin" version="0.0.1" 
+<plugin id="cordova-gidvision-ocr" version="0.0.1" 
     xmlns="http://apache.org/cordova/ns/plugins/1.0" 
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>GidLibVision</name>
@@ -9,12 +9,21 @@
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="GidLibVision">
-                <param name="android-package" value="gid.com.gidvisionlib.plugin.GidLibVision" />
+                <param name="android-package" value="com.gid.gidvisionlib.plugin" />
             </feature>
         </config-file>
-        <config-file parent="/*" target="AndroidManifest.xml"></config-file>
-        <source-file src="src/android/GidLibVision.java" target-dir="src/gid/com/gidvisionlib/plugin/GidLibVision" />
+        <config-file parent="/*" target="AndroidManifest.xml" />
+        <source-file src="src/android/GidLibVision.java" target-dir="com/gid/gidvisionlib/plugin" />
         <framework custom="true" src="src/android/GidLibVisionConfig.gradle" type="gradleReference" />
-        <resource-file src="src/android/libs/gidvisionlib-debug.aar" target="libs/gidvisionlib-debug.aar" />
+        <resource-file src="src/android/libs/gidvisionlib.aar" target="libs/gidvisionlib.aar" />
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="GidLibVision">
+                <param name="ios-package" value="GidLibVision" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/GidLibVision.m" />
+        <framework src="src/ios/Framework/GIDVisionLib.framework" custom="true"></framework>
     </platform>
 </plugin>

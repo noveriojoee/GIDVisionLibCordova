@@ -1,0 +1,6 @@
+framework module GIDVisionLib {
+  umbrella header "GIDVisionLib.h"
+
+  export *
+  module * { export * }
+}

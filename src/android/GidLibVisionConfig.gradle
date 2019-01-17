@@ -1,14 +1,25 @@
 repositories{    
   jcenter()
+  mavenCentral()
   flatDir {
       dirs 'libs'
    }
+   
 }
 
 dependencies {
+	//noverio add gradle sequence to include mbanking native to the project begin
+    //ocbcnisp core dependencies begin
+    implementation fileTree(include:[':gidvisionlib'], dir: "src/main/libs/")
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.google.android.gms:play-services-vision:15.0.0'
     implementation 'com.google.code.gson:gson:2.8.2'
-    compile files('libs/gidvisionlib-debug.aar')
+    // compile(name:'gidvisionlib', ext:'aar')
+    //ocbcnisp core dependencies end 
+    //noverio add gradle sequence to include mbanking native to the project end
 }
 
 android {

@@ -1,13 +1,11 @@
-package gid.com.gidvisionlib.plugin;
+package com.gid.gidvisionlib.plugin;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
-
+import android.content.Intent;
+import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-
-import gid.com.gidvisionlib.Common.Application.Application;
 import gid.com.gidvisionlib.ViewActivity.GIDLibVisionMainActivity;
 
 
@@ -19,6 +17,8 @@ public class GidLibVision extends CordovaPlugin {
     private static final int GO_TO_OCR_ACTIVITY_KTP = 1;
     private static final int GO_TO_OCR_ACTIVITY_NPWP = 2;
     private static final int GO_TO_OCR_ACTIVITY_DEBITCARD = 3;
+    private static final String TAG ="GidLibVision";
+    private Intent i;
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -47,15 +47,15 @@ public class GidLibVision extends CordovaPlugin {
 
     private void goToNewIntent(int id) {
         if(id == GO_TO_OCR_ACTIVITY_KTP){
-            this.i = new Intent(this,GIDLibVisionMainActivity.class);
+            this.i = new Intent(this.cordova.getActivity(),GIDLibVisionMainActivity.class);
             this.i.putExtra("OCR_MODE","KTP");
             this.cordova.getActivity().startActivityForResult(i,GO_TO_OCR_ACTIVITY_KTP);
         }else if(id == GO_TO_OCR_ACTIVITY_DEBITCARD){
-            this.i = new Intent(this,GIDLibVisionMainActivity.class);
+            this.i = new Intent(this.cordova.getActivity(),GIDLibVisionMainActivity.class);
             this.i.putExtra("OCR_MODE","DEBIT_CARD");
             this.cordova.getActivity().startActivityForResult(i,GO_TO_OCR_ACTIVITY_DEBITCARD);
         }else if(id == GO_TO_OCR_ACTIVITY_NPWP){
-            this.i = new Intent(this,GIDLibVisionMainActivity.class);
+            this.i = new Intent(this.cordova.getActivity(),GIDLibVisionMainActivity.class);
             this.i.putExtra("OCR_MODE","NPWP");
             this.cordova.getActivity().startActivityForResult(i,GO_TO_OCR_ACTIVITY_NPWP);
         }else{
