@@ -9,13 +9,25 @@
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="GidLibVision">
-                <param name="android-package" value="com.gid.gidvisionlib.plugin" />
+                <param name="android-package" value="com.maybank.ocr.plugin" />
             </feature>
         </config-file>
-        <config-file parent="/*" target="AndroidManifest.xml" />
-        <source-file src="src/android/GidLibVision.java" target-dir="com/gid/gidvisionlib/plugin" />
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity
+            android:name="gid.com.gidvisionlib.ViewActivity.GIDLibVisionMainActivity"
+            android:label="@string/launcher_name"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+            tools:replace="label,theme"/>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-feature android:name="android.hardware.camera" />
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        </config-file>
+        <source-file src="src/android/GidLibVision.java" target-dir="com/maybank/ocr/plugin" />
         <framework custom="true" src="src/android/GidLibVisionConfig.gradle" type="gradleReference" />
-        <resource-file src="src/android/libs/gidvisionlib.aar" target="libs/gidvisionlib.aar" />
+        <resource-file src="src/android/libs/GIDVisionLibAndroidv27.aar" target="../../libs/GIDVisionLibAndroidv27.aar" />
     </platform>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
