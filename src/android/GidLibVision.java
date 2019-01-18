@@ -1,4 +1,4 @@
-package com.gid.gidvisionlib.plugin;
+package maybank.ocr.plugin;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
