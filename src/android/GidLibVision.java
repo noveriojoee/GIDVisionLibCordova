@@ -63,15 +63,17 @@ public class GidLibVision extends CordovaPlugin {
             if(data.getStringExtra(GIDLibVisionMainActivity.ACTIVITY_STATUS).equals(Application.ACTIVITY_STATUS_OK)){
                 String textResult = data.getStringExtra(GIDLibVisionMainActivity.OCR_CAPTURED_TEXT);
                 String imagePath = data.getStringExtra(GIDLibVisionMainActivity.OCR_CAPTURED_IMG);
-                String responseJson = this.getResponseData(textResult,imagePath);
+                String responseJson = this.getResponseData("00000","Succeed",textResult,imagePath);
                 this.callbackContext.success(responseJson);
 
             }else if(data.getStringExtra(GIDLibVisionMainActivity.ACTIVITY_STATUS).equals(Application.ACTIVITY_STATUS_CANCELED)){
                 Log.d(TAG, "onActivityResult: Canceled");
-                this.callbackContext.error("canceled");
+                String responseJson = this.getResponseData("00001","Activity Canceled","EMPTY","EMPTY");
+                this.callbackContext.error(responseJson);
             }else if(data.getStringExtra(GIDLibVisionMainActivity.ACTIVITY_STATUS).equals(Application.ACTIVITY_STATUS_FAILED)){
                 Log.d(TAG, "onActivityResult: Failed");
-                this.callbackContext.error("Failed, fatal error");
+                String responseJson = this.getResponseData("99999","FatalError","EMPTY","EMPTY");
+                this.callbackContext.error(responseJson);
             }
         }
     }
@@ -94,7 +96,7 @@ public class GidLibVision extends CordovaPlugin {
         }
     }
 
-    private String getResponseData(String capturedText,String imagePath){
+    private String getResponseData(String errCode, String errMsg,String capturedText,String imagePath){
         String result = "";
         JSONObject responseEnvelope = new JSONObject();
         JSONObject responseBody = new JSONObject();
@@ -102,8 +104,8 @@ public class GidLibVision extends CordovaPlugin {
             //setup responseBody
             responseBody.put("textResult",capturedText);
             responseBody.put("image",imagePath);
-            responseEnvelope.put("ErrCode","99999");
-            responseEnvelope.put("ErrStatus","ERROR");
+            responseEnvelope.put("ErrCode",errCode);
+            responseEnvelope.put("ErrStatus",errMsg);
             responseEnvelope.put("platform","android");
             responseEnvelope.put("ServiceResult",responseBody);
             result = responseEnvelope.toString();
