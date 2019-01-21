@@ -91,13 +91,13 @@
 
 -(NSString*) GetResponseStringJSONWithText : (NSString*) textCaptured imageCaptured : (NSString*)base64String{
     
-    NSString* rsJSONModel =@"{\"ErrCode\" : \"[ErrCodeVal]\",\"ErrStatus\" : \"[ErrStatusVal]\",\"ServiceResult\" : {\"textResult\" : \"[text]\",\"image\" : \"[imageStringBase64]\"}}";
+    NSString* rsJSONModel =@"{\"ErrCode\" : \"[ErrCodeVal]\",\"ErrStatus\" : \"[ErrStatusVal]\",\"ServiceResult\" : {\"platform\" : \"[platformVal]\",\"textResult\" : \"[text]\",\"image\" : \"[imageStringBase64]\"}}";
     
     rsJSONModel = [rsJSONModel stringByReplacingOccurrencesOfString:@"[ErrCodeVal]" withString:@"0000"];
     rsJSONModel = [rsJSONModel stringByReplacingOccurrencesOfString:@"[ErrStatusVal]" withString:@"OK"];
     rsJSONModel = [rsJSONModel stringByReplacingOccurrencesOfString:@"[text]" withString:textCaptured];
     rsJSONModel = [rsJSONModel stringByReplacingOccurrencesOfString:@"[imageStringBase64]" withString:base64String];
-    
+    rsJSONModel = [rsJSONModel stringByReplacingOccurrencesOfString:@"[platformVal]" withString:@"ios"];
     return rsJSONModel;
 }
 - (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData {
