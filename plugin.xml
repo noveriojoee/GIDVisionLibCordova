@@ -27,7 +27,8 @@
         </config-file>
         <source-file src="src/android/GidLibVision.java" target-dir="src/org/maybank/ocr/plugin" />
         <framework custom="true" src="src/android/GidLibVisionConfig.gradle" type="gradleReference" />
-        <resource-file src="src/android/libs/GIDVisionLibAndroidv27.aar" target="../../libs/GIDVisionLibAndroidv27.aar" />
+        <!-- <resource-file src="src/android/libs/GIDVisionLibAndroidv27.aar" target="../../libs/GIDVisionLibAndroidv27.aar" /> -->
+        <resource-file src="src/android/libs/GIDVisionLibAndroidv27.aar" target="/libs/GIDVisionLibAndroidv27.aar" />
     </platform>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
